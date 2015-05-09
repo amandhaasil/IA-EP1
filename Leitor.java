@@ -61,9 +61,9 @@ public class Leitor
             contador = lista.size();
             lista = RetiraAtributo.retirada(lista);
             listara = Normaliza.normalizacao(lista);
-            //no caso da lvq 
-            LVQ redeLVQ = new LVQ(1);
-            redeLVQ.treinamento(listara);
+            //no caso da lvq/mlp - quando tiver
+            //LVQ redeLVQ = new LVQ(1);
+            //redeLVQ.treinamento(listara);
 		}
 	}
 }
