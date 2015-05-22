@@ -11,14 +11,6 @@ public class Normaliza {
 		double media = 0.0;
 		double dpadrao = 0.0;
 		double valor = 0.0;
-		Entrada backuplinha = lista.get(1);
-		for(int j = 0;j < backuplinha.linha.length;j++)
-		{
-			if (backuplinha.linha[j] == -1)
-				j = 65;
-			else
-				System.out.printf("%f ", backuplinha.linha[j]);
-		}
 			
 		for(int i = 0; i < lista.get(0).linha.length; i++){
 			for(int k = 0; k < lista.size(); k++){
@@ -42,11 +34,6 @@ public class Normaliza {
 				lista.remove(c);
 				lista.add(c, entradaNova);				
 			}
-		}
-		Entrada backuplinha2 = lista.get(1700);
-		for(int m = 0;m < backuplinha2.linha.length;m++)
-		{
-			System.out.printf("%f ", backuplinha2.linha[m]);
 		}
 		return lista;
 
