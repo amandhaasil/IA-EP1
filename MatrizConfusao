@@ -1,0 +1,65 @@
+public class MatrizConfusao {
+	public static int[][] matriz;
+	static double TP;
+	static double FN;
+	static double FP; 
+	static double FScore;
+	
+	public MatrizConfusao(int classes){
+		matriz = new int[classes][classes];
+		TP = 0;
+		FN = 0;
+		FP = 0;
+		FScore = 0;	
+	}
+	
+	public void populaMatriz(int real, int predita){
+		matriz[real][predita]++;
+	}
+	
+	public void calculaValores(){
+		//calculo do TP
+		TP = 0;
+		for(int j = 0; j < matriz.length; j++){
+			TP = TP + matriz[j][j];
+		}
+		
+		//calculo do FN
+		FN = 0;
+		for(int a = 0; a < matriz.length; a++){
+			for(int b = 0; b < matriz.length; b++){
+				if(a!=b)
+					FN = FN + matriz[b][a];
+			}
+		}
+		
+		//calculo do FP
+		FP = 0;
+		for(int a = 0; a < matriz.length; a++){
+			for(int b = 0; b < matriz.length; b++){
+				if(a!=b)
+					FP = FP + matriz[a][b];
+			}
+		}
+		//calculo do TPR
+		double TPR = TP/(TP+FN);
+		
+		//calculo do PPV
+		double PPV = TP/(TP+FP);
+		
+		//calculo do F-Score
+		FScore = (TPR*PPV)/((TPR+PPV)/2);
+		
+	}
+	
+	public void imprimeMatriz(){
+		for(int i = 0; i < matriz.length; i++){
+			for(int j = 0; j < matriz.length; j++){
+				System.out.printf("  " + matriz[j][i]);
+			}
+			System.out.println("  ");
+		}
+		
+	}
+
+}
