@@ -1,0 +1,41 @@
+package ep.ia;
+
+import java.util.LinkedList;
+
+public class NeuronioLVQ {
+	private int classe;
+	private double[] peso;
+	private int tamanho;
+	public boolean alterado;
+	
+	public NeuronioLVQ(int tamanho){
+		this.tamanho = tamanho;
+		alterado = false;
+	}
+	
+	public int inicAleatorio(LinkedList<Entrada> entradas, int classe, int indice){
+		while(entradas.get(indice).resultado != classe){
+			indice++;
+			if(indice >= entradas.size())
+				indice = 0;
+		}
+			
+		double[] pesosEntrada = entradas.get(indice).linha;
+		
+		setPeso(pesosEntrada);
+		return indice;
+	}
+	
+	public double[] getPeso(){
+		return peso;
+	}
+	public void setPeso(double[] peso){
+		this.peso = peso;
+	}
+	public int getClasse(){
+		return classe;
+	}
+	public void setClasse(int classe){
+		this.classe = classe;
+	}
+}
