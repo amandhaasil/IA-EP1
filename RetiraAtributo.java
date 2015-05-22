@@ -20,6 +20,7 @@ public class RetiraAtributo {
 		boolean checadnovo = false;
 		int j = 0;
 		int i = 0;
+		int verdadeiraColuna = 0;
 		while (i < lista.get(0).linha.length){
 			if(checadnovo){
 				i--;
@@ -44,12 +45,13 @@ public class RetiraAtributo {
 				j++;
 			}
 			if (remove){
-				System.out.println("Remover coluna" + i);
+				System.out.println("Remover coluna" + verdadeiraColuna);
 				lista = tiraColuna(lista,i);
 				remove = false;
 				checadnovo = true;
 			}
-			i++;  
+			i++; 
+			verdadeiraColuna++;
 		}
 		return lista;
 	}
